@@ -12,6 +12,8 @@ module Gerundify
     GERUND_EXCEPTIONS[self] ||
     if self =~ /ing$/
       self
+    elsif self =~ /(.*)ie$/
+      "#{$1}ying"
     elsif self =~ /(.*)e$/
       "#{$1}ing"
     elsif GERUND_DOUBLE_TS.include?(self.downcase)
