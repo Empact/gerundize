@@ -3,28 +3,19 @@ module Gerundify
     'blue' => 'blueing',
 
     'brag' => 'bragging',
-
-    'submit' => 'submitting',
-    'bet' => 'betting',
-    'blot' => 'blotting',
-    'chat' => 'chatting',
-    'cut' => 'cutting',
-    'dot' => 'dotting',
-    'fit' => 'fitting',
-    'flat' => 'flatting',
-    'flit' => 'flitting',
-    'forget' => 'forgetting',
-    'get' => 'getting',
-    'jot', 'knit', 'knot'
   }
+
+  GERUND_DOUBLE_TS = %w(submit bet blot chat cut dot fit flat flit forget get jot
+    knit knot shut sit slit slot spat spit unset wet wit)
 
   def gerundify
     GERUND_EXCEPTIONS[self] ||
-    case self
-    when /ing$/
+    if self =~ /ing$/
       self
-    when /(.*)e$/
+    elsif self =~ /(.*)e$/
       "#{$1}ing"
+    elsif GERUND_DOUBLE_TS.include?(self.downcase)
+      "#{self}ting"
     else
       "#{self}ing"
     end
