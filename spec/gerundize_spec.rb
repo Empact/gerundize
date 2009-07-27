@@ -1,6 +1,7 @@
-require File.dirname(__FILE__) + '/../lib/gerundify'
+require File.dirname(__FILE__) + '/../lib/gerundize'
 
-describe "#gerundify" do
+describe "#to_gerund" do
+  # it_should_behave_like gerundize
   it "should translate common form submission words" do
     {
       'submit' => 'submitting',
@@ -14,7 +15,26 @@ describe "#gerundify" do
       'click' => 'clicking',
       'whack' => 'whacking'
     }.each_pair do |key, value|
-      key.gerundify.should == value
+      key.to_gerund.should == value
+    end
+  end
+end
+
+describe "#gerundize" do
+  it "should translate common form submission words" do
+    {
+      'submit' => 'submitting',
+      'save' => 'saving',
+      'update' => 'updating',
+      'delete' => 'deleting',
+      'erase' => 'erasing',
+      'comment' => 'commenting',
+      'push' => 'pushing',
+      'follow' => 'following',
+      'click' => 'clicking',
+      'whack' => 'whacking'
+    }.each_pair do |key, value|
+      key.gerundize.should == value
     end
   end
   
@@ -23,7 +43,7 @@ describe "#gerundify" do
     total_gerund_count = gerunds.size
     
     nongerunds.each do |nongerund|
-      gerunds.delete(nongerund.gerundify)
+      gerunds.delete(nongerund.gerundize)
     end
     
     puts "#{gerunds.size} unmatched of #{total_gerund_count}"

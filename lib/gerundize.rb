@@ -1,4 +1,4 @@
-module Gerundify
+module Gerundize
   GERUND_EXCEPTIONS = {
     'blue' => 'blueing'
   }
@@ -14,7 +14,7 @@ module Gerundify
     abhor bar concur demur jar scar spur star stir transfer unjar
   )
 
-  def gerundify
+  def gerundize
     GERUND_EXCEPTIONS[self] ||
     if self =~ /ing$/
       self
@@ -28,8 +28,10 @@ module Gerundify
       "#{self}ing"
     end
   end
+
+  alias_method :to_gerund, :gerundize
 end
 
 class String
-  include Gerundify
+  include Gerundize
 end
