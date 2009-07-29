@@ -1,16 +1,11 @@
-module Gerundize
-  GERUND_EXCEPTIONS = {
-    'hoe' => 'hoeing',
-    'pee' => 'peeing',
-    'pie' => 'pieing',
-    'dye' => 'dyeing',
-    'see' => 'seeing',
-    'free' => 'freeing',
-    'emcee' => 'emceeing',
-    'cue' => 'cueing'
-  }
+require 'set'
 
-  GERUND_DOUBLES = %w(
+module Gerundize
+  GERUND_LEAVE_ALONES = Set.new %w(
+    fricassee hoe pee pie dye see free emcee cue sightsee
+  )
+
+  GERUND_DOUBLES = Set.new %w(
     rub snub
 
     bid shed outbid
@@ -37,8 +32,9 @@ module Gerundize
   )
 
   def gerundize
-    GERUND_EXCEPTIONS[self] ||
-    if self =~ /ing$/
+    if GERUND_LEAVE_ALONES.include?(self.downcase)
+      "#{self}ing"
+    elsif self =~ /ing$/
       self
     elsif self =~ /(.*)ie$/
       "#{$1}ying"
