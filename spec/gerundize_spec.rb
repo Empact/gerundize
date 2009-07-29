@@ -1,10 +1,9 @@
 require File.dirname(__FILE__) + '/../lib/gerundize'
 
-describe "#to_gerund" do
-  # it_should_behave_like gerundize
-  it "should translate common form submission words" do
-    {
+COMMON_FORM_LIST = {
       'submit' => 'submitting',
+      'open' => 'opening',
+      'add' => 'adding',
       'save' => 'saving',
       'update' => 'updating',
       'delete' => 'deleting',
@@ -14,7 +13,12 @@ describe "#to_gerund" do
       'follow' => 'following',
       'click' => 'clicking',
       'whack' => 'whacking'
-    }.each_pair do |key, value|
+    }
+
+describe "#to_gerund" do
+  # it_should_behave_like gerundize
+  it "should translate common form submission words" do
+    COMMON_FORM_LIST.each_pair do |key, value|
       key.to_gerund.should == value
     end
   end
@@ -22,18 +26,7 @@ end
 
 describe "#gerundize" do
   it "should translate common form submission words" do
-    {
-      'submit' => 'submitting',
-      'save' => 'saving',
-      'update' => 'updating',
-      'delete' => 'deleting',
-      'erase' => 'erasing',
-      'comment' => 'commenting',
-      'push' => 'pushing',
-      'follow' => 'following',
-      'click' => 'clicking',
-      'whack' => 'whacking'
-    }.each_pair do |key, value|
+    COMMON_FORM_LIST.each_pair do |key, value|
       key.gerundize.should == value
     end
   end
