@@ -29,6 +29,8 @@ module Gerundize
     submit bet blot chat cut dot fit flat flit forget get jot cat fret
     knit knot shut sit slit slot spat spit unset wet wit plot nut shit
     emit snot facet sublet tat hit
+
+    ricochet reformat flimflam backstop bullshit resubmit retrofit eavesdrop reprogram backpedal horsewhip nightclub deprogram jitterbug disembowel quarrel program refer admit refit equip excel
   )
 
   def gerundize
