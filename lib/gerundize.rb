@@ -34,20 +34,21 @@ module Gerundize
   )
 
   def gerundize
-    downcased = self.downcase
+    word, rest = /(\w+)(.*)/.match(self).captures
+    downcased = word.downcase
     if GERUND_DIRECT.include?(downcased)
-      "#{self}ing"
-    elsif self =~ /ing$/
-      self
-    elsif self =~ /(.*)ie$/
+      "#{word}ing"
+    elsif word =~ /ing$/
+      word
+    elsif word =~ /(.*)ie$/
       "#{$1}ying"
-    elsif self =~ /(.*)e$/
+    elsif word =~ /(.*)e$/
       "#{$1}ing"
     elsif GERUND_DOUBLES.include?(downcased)
-      "#{self + self[-1,1]}ing"
+      "#{word + word[-1,1]}ing#{rest}"
     else
-      "#{self}ing"
-    end
+      "#{word}ing"
+    end + rest
   end
 
   alias_method :to_gerund, :gerundize
