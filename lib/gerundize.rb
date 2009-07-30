@@ -1,7 +1,7 @@
 require 'set'
 
 module Gerundize
-  GERUND_LEAVE_ALONES = Set.new %w(
+  GERUND_DIRECT = Set.new %w(
     fricassee hoe pee pie dye see free emcee cue sightsee
   )
 
@@ -34,7 +34,8 @@ module Gerundize
   )
 
   def gerundize
-    if GERUND_LEAVE_ALONES.include?(self.downcase)
+    downcased = self.downcase
+    if GERUND_DIRECT.include?(downcased)
       "#{self}ing"
     elsif self =~ /ing$/
       self
@@ -42,7 +43,7 @@ module Gerundize
       "#{$1}ying"
     elsif self =~ /(.*)e$/
       "#{$1}ing"
-    elsif GERUND_DOUBLES.include?(self.downcase)
+    elsif GERUND_DOUBLES.include?(downcased)
       "#{self + self[-1,1]}ing"
     else
       "#{self}ing"
