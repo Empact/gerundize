@@ -45,7 +45,7 @@ module Gerundize
     elsif word =~ /(.*)e$/
       "#{$1}ing"
     elsif GERUND_DOUBLES.include?(downcased)
-      "#{word + word[-1,1]}ing#{rest}"
+      "#{word + word[-1,1]}ing"
     else
       "#{word}ing"
     end + rest

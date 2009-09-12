@@ -29,7 +29,7 @@ describe "#to_gerund" do
     it "should process the first word" do
       COMMON_FORM_LIST.each_pair do |key, value|
         sentence = Faker::Lorem.sentence
-        "#{key.to_gerund} #{sentence}".should == "#{value} #{sentence}"
+        "#{key} #{sentence}".to_gerund.should == "#{value} #{sentence}"
       end
     end
   end
