@@ -31,6 +31,8 @@ module Gerundize
     emit snot facet sublet tat hit
 
     ricochet reformat flimflam backstop bullshit resubmit retrofit eavesdrop reprogram backpedal horsewhip nightclub deprogram jitterbug disembowel quarrel program refer admit refit equip excel
+
+    peg pen win pin pit ban beg bin rib tug rip rob rot bud bum tip can cap tin run nod nip net nag tap tan man lop cup log dig lap lag jab pad hug fan gas sop sog sod sob spin flog flag grin spar slum slug spot stab stem slog slip stop sled drum drub drop slap drag stun swap swim skip skin skim club thin clip skid chop scan trap trim trip plod whip wrap repel beset besot begin demur strut strip strap squat
   )
 
   def gerundize
